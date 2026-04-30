@@ -1,16 +1,16 @@
-# ⚡ CryptoStream Intelligence: Real-Time Data Pipeline
+#  CryptoStream Intelligence: Real-Time Data Pipeline
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)](https://www.python.org/)
 [![Kafka](https://img.shields.io/badge/Streaming-Apache%20Kafka-black?logo=apachekafka)](https://kafka.apache.org/)
 [![Docker](https://img.shields.io/badge/Infrastructure-Docker-blue?logo=docker)](https://www.docker.com/)
 [![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red?logo=streamlit)](https://streamlit.io/)
 
-## 📖 Overview
+##  Overview
 This project is an **End-to-End Real-Time Data Engineering Pipeline** designed to ingest, process, and visualize live Bitcoin market data. By leveraging **Apache Kafka** as a distributed message broker, the system ensures low-latency data delivery from the **Binance API** to a custom-built analytics dashboard.
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 The pipeline is built with a modular approach to ensure scalability and reliability:
 
 1. **Ingestion Layer:** A Python-based Producer fetches live BTC/USDT tickers from Binance via REST API.
@@ -20,7 +20,7 @@ The pipeline is built with a modular approach to ensure scalability and reliabil
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 | Category | Tools |
 | :--- | :--- |
 | **Language** | Python (Requests, Pandas, JSON) |
@@ -31,7 +31,7 @@ The pipeline is built with a modular approach to ensure scalability and reliabil
 
 ---
 
-## 📊 Visual Preview
+## Visual Preview
 
 ### 1. Real-Time Analytics Dashboard
 The dashboard provides live price tracking and session-based high/low metrics.
@@ -47,7 +47,7 @@ Stable service management using Docker Desktop.
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
