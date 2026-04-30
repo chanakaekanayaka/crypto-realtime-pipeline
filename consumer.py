@@ -1,25 +1,25 @@
 import json
 from kafka import KafkaConsumer
 
-# 1. Kafka Consumer එක සෙට් කිරීම
+# 1. Kafka Consumer configuration
 consumer = KafkaConsumer(
-    'crypto-prices', # අපි කියවන්න ඕනේ Topic එක
+    'crypto-prices', # The topic we want to subscribe to
     bootstrap_servers=['localhost:9092'],
-    auto_offset_reset='earliest', # මුල ඉඳන්ම දත්ත කියවන්න පටන් ගන්න
+    auto_offset_reset='earliest', # Start reading from the earliest available message
     enable_auto_commit=True,
-    group_id='my-group', # Consumer Group එකක් දාන්න ඕනේ
-    value_deserializer=lambda x: json.loads(x.decode('utf-8')) # දත්ත Decode කරලා JSON කරන්න
+    group_id='my-group', # Assign a unique Consumer Group ID
+    value_deserializer=lambda x: json.loads(x.decode('utf-8')) # Deserialize data from bytes to JSON format
 )
 
 print("Consumer started... Listening to 'crypto-prices' topic.")
 
-# 2. දිගටම දත්ත කියවීමේ Loop එක
+# 2. Continuous loop to read data from Kafka
 try:
     for message in consumer:
-        # Kafka එකෙන් ලැබෙන පණිවිඩයේ ඇතුළත තියෙන දත්ත (Value) ගනිමු
+        # Extract the actual data (Value) from the Kafka message
         data = message.value
         
-        # දත්ත ටික පිරිසිදු කරලා අපිට ඕන විදිහට ගනිමු
+        # Extract and assign specific fields from the data
         symbol = data['symbol']
         price = data['price']
         timestamp = data['timestamp']
@@ -29,4 +29,5 @@ try:
 except KeyboardInterrupt:
     print("Consumer stopped.")
 finally:
+    # Safely close the consumer connection
     consumer.close()
